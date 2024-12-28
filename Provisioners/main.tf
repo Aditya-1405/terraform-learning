@@ -115,8 +115,8 @@ resource "aws_instance" "provisioner_EC2" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo apt update -y",
-      "sudo apt-get install apache2 -y",
+      "sudo apt update -y > /tmp/provision.log 2>&1",
+      "sudo apt-get install apache2 -y >> /tmp/provision.log 2>&1",
       "sudo cp -r /home/ubuntu/* /var/www/html/",
       "sudo systemctl enable apache2",
       "sudo systemctl start apache2"
