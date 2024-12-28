@@ -110,14 +110,14 @@ resource "aws_instance" "provisioner_EC2" {
 
   provisioner "file" {
     source      = "2137_barista_cafe/"
-    destination = "/home/ubuntu/2137_barista_cafe"
+    destination = "/home/ubuntu/"
   }
 
   provisioner "remote-exec" {
     inline = [
       "sudo apt update -y",
       "sudo apt-get install apache2 -y",
-      "sudo cp -r /home/ubuntu/2137_barista_cafe/* /var/www/html/",
+      "sudo cp -r /home/ubuntu/* /var/www/html/",
       "sudo systemctl enable apache2",
       "sudo systemctl start apache2"
     ]
