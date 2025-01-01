@@ -4,7 +4,6 @@ provider "aws" {
     }
 
 
-
 module "ec2_instance" {
     source = "./modules/ec2_instance"
     ami= var.ami
