@@ -20,7 +20,7 @@ resource "aws_vpc" "provisioners_VPC" {
 resource "aws_subnet" "provisioner_subnet" {
   vpc_id                  = aws_vpc.provisioners_VPC.id
   cidr_block              = var.subnet
-  availability_zone       = "ap-south-1a"
+  availability_zone       = var.availability_zone
   map_public_ip_on_launch = true
   tags = {
     Name = "terraform_provisioners_subnet"
